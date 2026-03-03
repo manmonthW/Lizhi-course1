@@ -80,408 +80,610 @@
     font-size: 0.85rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    animation: badgePulse 3s ease-in-out infinite;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+    background: rgba(37, 99, 235, 0.08);
   }
 
-  @keyframes badgePulse {
-    0%, 100% { box-shadow: 0 0 10px rgba(96, 165, 250, 0.3); }
-    50% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.5); }
-  }
-
-  .hero h1 {
+  .hero-title {
     font-family: 'Noto Serif SC', serif;
-    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 900;
-    color: #ffffff;
-    margin-bottom: 1rem;
+    color: #fff;
     line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
   }
 
-  .hero-highlight {
-    background: linear-gradient(135deg, var(--accent-glow), var(--purple));
+  .hero-title span {
+    background: linear-gradient(135deg, var(--accent-glow), var(--teal));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.3rem);
-    color: #94a3b8;
-    margin-bottom: 2.5rem;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.6);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
     font-weight: 300;
+    line-height: 1.9;
   }
 
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 14px 36px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-light));
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
-    transition: all 0.3s ease;
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
   }
 
-  .hero-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+  .hero-meta-item {
+    text-align: center;
+  }
+
+  .hero-meta-value {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .hero-meta-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
   }
 
   /* MAIN CONTAINER */
   .main-container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 2rem;
   }
 
+  /* SECTION */
   .section {
     padding: 5rem 0;
   }
 
   .section-header {
-    text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
 
   .section-label {
-    display: inline-block;
-    padding: 4px 16px;
-    background: rgba(37, 99, 235, 0.1);
-    color: var(--accent);
-    border-radius: 50px;
     font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
   }
 
   .section-title {
     font-family: 'Noto Serif SC', serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 900;
+    font-size: 2rem;
+    font-weight: 700;
     color: var(--primary);
-    margin-bottom: 1rem;
+    line-height: 1.3;
   }
 
   .section-desc {
-    font-size: 1.1rem;
+    margin-top: 1rem;
     color: var(--text-secondary);
+    font-size: 1rem;
     max-width: 700px;
-    margin: 0 auto;
+    line-height: 1.9;
   }
 
-  /* BACKGROUND VARIANTS */
-  .bg-light {
-    background: var(--surface);
-  }
-
+  /* BACKGROUND SECTIONS */
+  .bg-white { background: #fff; }
+  .bg-surface { background: var(--surface); }
   .bg-dark {
     background: var(--primary);
+    color: #fff;
   }
+  .bg-dark .section-label { color: var(--accent-glow); }
+  .bg-dark .section-title { color: #fff; }
+  .bg-dark .section-desc { color: rgba(255,255,255,0.6); }
 
-  .bg-dark .section-title,
-  .bg-dark .section-desc {
-    color: #ffffff;
-  }
-
-  .bg-dark .section-label {
-    background: rgba(96, 165, 250, 0.15);
-    color: var(--accent-glow);
-  }
-
-  /* STATS GRID */
-  .stats-grid {
+  /* CLIENT PROFILE CARDS */
+  .profile-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .profile-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .profile-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+  }
+
+  .profile-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .profile-card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+  }
+
+  .profile-card p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* PHILOSOPHY */
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
 
-  .stat-card {
-    background: white;
-    padding: 2.5rem 2rem;
-    border-radius: 16px;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
-    border: 1px solid var(--border);
-  }
-
-  .stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
-
-  .stat-number {
-    font-size: 3rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, var(--accent), var(--purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 0.5rem;
-  }
-
-  .stat-label {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    font-weight: 500;
-  }
-
-  /* PHILOSOPHY GRID */
-  .philosophy-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
+  @media (max-width: 768px) {
+    .philosophy-grid { grid-template-columns: 1fr; }
   }
 
   .philosophy-item {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2.5rem 2rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-  }
-
-  .philosophy-item:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-3px);
+    padding: 2rem;
   }
 
   .philosophy-number {
-    font-size: 2.5rem;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent-glow), var(--teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
     margin-bottom: 1rem;
   }
 
   .philosophy-item h4 {
-    font-size: 1.4rem;
-    color: white;
-    margin-bottom: 0.8rem;
-    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: #fff;
   }
 
   .philosophy-item p {
-    color: #94a3b8;
-    line-height: 1.7;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
   }
 
-  /* MODULE CARDS */
-  .module-grid {
-    display: grid;
-    gap: 2rem;
-  }
-
-  .module-card {
-    background: white;
+  /* COURSE CARDS */
+  .course-card {
+    background: #fff;
     border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     border: 1px solid var(--border);
+    margin-bottom: 2rem;
+    overflow: hidden;
     transition: all 0.3s ease;
   }
 
-  .module-card:hover {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
-    transform: translateY(-3px);
+  .course-card:hover {
+    box-shadow: 0 25px 80px rgba(0,0,0,0.06);
   }
 
-  .module-header {
-    padding: 2rem 2.5rem;
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    border-bottom: 2px solid var(--border);
-  }
-
-  .module-meta {
+  .course-header {
     display: flex;
+    align-items: stretch;
+  }
+
+  .course-number-block {
+    width: 100px;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
+    padding: 1.5rem 0;
+    flex-shrink: 0;
+  }
+
+  .course-number {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .course-week {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .course-info {
+    flex: 1;
+    padding: 1.5rem 2rem;
+  }
+
+  .course-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.3rem;
+  }
+
+  .course-tagline {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
     margin-bottom: 1rem;
   }
 
-  .module-number {
-    width: 50px;
-    height: 50px;
+  .course-tags {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--accent), var(--accent-light));
-    color: white;
-    border-radius: 12px;
-    font-weight: 900;
-    font-size: 1.3rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
 
-  .module-badge {
-    padding: 4px 12px;
-    background: rgba(37, 99, 235, 0.1);
-    color: var(--accent);
+  .tag {
+    display: inline-block;
+    padding: 3px 12px;
     border-radius: 50px;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .tag-tool { background: #eff6ff; color: #2563eb; }
+  .tag-skill { background: #f0fdf4; color: #16a34a; }
+  .tag-dept { background: #fefce8; color: #ca8a04; }
+  .tag-hot { background: #fef2f2; color: #dc2626; }
+
+  .course-body {
+    padding: 0 2rem 2rem;
+    padding-left: calc(100px + 2rem);
+  }
+
+  .course-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .course-section-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .course-content-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .course-content-list li {
+    position: relative;
+    padding: 0.4rem 0 0.4rem 1.5rem;
+    font-size: 0.92rem;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .course-content-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
     font-weight: 600;
   }
 
-  .module-title {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
+  .tool-highlight {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(139, 92, 246, 0.08));
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--accent);
   }
 
-  .module-desc {
-    color: var(--text-secondary);
-    font-size: 1rem;
-  }
-
-  .module-body {
-    padding: 2.5rem;
-  }
-
-  .lesson-list {
-    display: grid;
-    gap: 1.5rem;
-  }
-
-  .lesson-item {
+  .time-bar {
     display: flex;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    background: var(--surface);
+    gap: 0;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+
+  .time-theory { background: var(--accent); }
+  .time-demo { background: var(--purple); }
+  .time-practice { background: var(--success); }
+  .time-share { background: var(--orange); }
+
+  .time-legend {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .time-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+  }
+
+  .time-legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .course-hook {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.04), rgba(139, 92, 246, 0.04));
+    border: 1px dashed rgba(37, 99, 235, 0.2);
     border-radius: 12px;
-    border-left: 4px solid var(--accent);
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .course-hook p {
+    font-size: 0.88rem;
+    color: var(--accent);
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  .course-hook p::before {
+    content: '🔗 ';
+  }
+
+  /* COLOR THEMES FOR COURSE NUMBERS */
+  .theme-blue { background: linear-gradient(135deg, #2563eb, #3b82f6); }
+  .theme-purple { background: linear-gradient(135deg, #7c3aed, #8b5cf6); }
+  .theme-teal { background: linear-gradient(135deg, #0d9488, #14b8a6); }
+  .theme-orange { background: linear-gradient(135deg, #ea580c, #f97316); }
+  .theme-rose { background: linear-gradient(135deg, #e11d48, #f43f5e); }
+  .theme-emerald { background: linear-gradient(135deg, #059669, #10b981); }
+  .theme-indigo { background: linear-gradient(135deg, #4338ca, #6366f1); }
+  .theme-amber { background: linear-gradient(135deg, #d97706, #f59e0b); }
+  .theme-cyan { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+  .theme-pink { background: linear-gradient(135deg, #db2777, #ec4899); }
+  .theme-sky { background: linear-gradient(135deg, #0284c7, #0ea5e9); }
+  .theme-gold { background: linear-gradient(135deg, #b45309, #d97706); }
+
+  /* TOOL SHOWCASE */
+  .tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .tool-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-align: center;
     transition: all 0.3s ease;
   }
 
-  .lesson-item:hover {
-    background: #e0f2fe;
-    transform: translateX(5px);
+  .tool-item:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-2px);
   }
 
-  .lesson-number {
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    color: var(--accent);
-    border-radius: 8px;
-    font-weight: 700;
-    border: 2px solid var(--accent);
-  }
-
-  .lesson-content h4 {
-    font-size: 1.2rem;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-  }
-
-  .lesson-content p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
-  .lesson-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.8rem;
-  }
-
-  .lesson-tag {
-    padding: 3px 10px;
-    background: white;
-    color: var(--accent);
-    border-radius: 50px;
-    font-size: 0.75rem;
+  .tool-name {
     font-weight: 600;
-    border: 1px solid var(--accent);
+    color: #fff;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
   }
 
-  /* DEPARTMENT CARDS */
+  .tool-type {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* DEPARTMENT VALUE */
   .dept-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .dept-grid { grid-template-columns: 1fr; }
   }
 
   .dept-card {
-    background: white;
-    padding: 2.5rem 2rem;
+    background: #fff;
     border-radius: 16px;
-    border-left: 5px solid var(--accent);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
   }
 
-  .dept-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  .dept-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
   }
 
-  .dept-marketing { border-left-color: var(--purple); }
-  .dept-sales { border-left-color: var(--success); }
-  .dept-ops { border-left-color: var(--orange); }
+  .dept-marketing::before { background: linear-gradient(90deg, #2563eb, #3b82f6); }
+  .dept-teaching::before { background: linear-gradient(90deg, #7c3aed, #8b5cf6); }
+  .dept-sales::before { background: linear-gradient(90deg, #059669, #10b981); }
+  .dept-ops::before { background: linear-gradient(90deg, #ea580c, #f97316); }
 
   .dept-card h4 {
-    font-size: 1.4rem;
-    color: var(--primary);
-    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
   }
 
   .dept-card ul {
     list-style: none;
-    display: grid;
-    gap: 1rem;
+    padding: 0;
   }
 
   .dept-card li {
-    padding-left: 1.5rem;
-    position: relative;
+    padding: 0.3rem 0;
+    font-size: 0.88rem;
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.7;
+    position: relative;
+    padding-left: 1.2rem;
   }
 
   .dept-card li::before {
-    content: '✦';
+    content: '✓';
     position: absolute;
     left: 0;
-    color: var(--accent);
-    font-weight: 900;
+    color: var(--success);
+    font-weight: 700;
+    font-size: 0.8rem;
   }
 
   /* FOOTER */
   .footer {
-    background: #0a0f1a;
-    color: #94a3b8;
+    background: var(--primary);
+    color: rgba(255,255,255,0.4);
+    padding: 3rem 0;
     text-align: center;
-    padding: 3rem 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
   }
 
   .footer-brand {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: white;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.7);
     margin-bottom: 0.5rem;
+    font-weight: 600;
   }
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
-    .section { padding: 3rem 0; }
-    .hero h1 { font-size: 2rem; }
-    .stats-grid,
-    .philosophy-grid,
-    .dept-grid {
-      grid-template-columns: 1fr;
+    .course-body { padding-left: 2rem; }
+    .course-header { flex-direction: column; }
+    .course-number-block {
+      width: 100%;
+      min-height: auto;
+      padding: 1rem;
+      flex-direction: row;
+      gap: 0.75rem;
     }
+    .hero-meta { gap: 1.5rem; }
+    .course-info { padding: 1rem 1.5rem; }
+  }
+
+  /* PHASE DIVIDER */
+  .phase-divider {
+    text-align: center;
+    padding: 3rem 0 1rem;
+  }
+
+  .phase-badge {
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+
+  .phase-subtitle {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  /* SUMMARY TABLE */
+  .summary-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+
+  .summary-table thead th {
+    background: var(--primary);
+    color: #fff;
+    padding: 1rem 1.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .summary-table tbody td {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.88rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .summary-table tbody tr:nth-child(even) {
+    background: var(--surface);
+  }
+
+  .summary-table tbody tr:hover {
+    background: #eff6ff;
+  }
+
+  .phase-label {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  /* PRINT STYLES */
+  @media print {
+    .hero { min-height: auto; padding: 3rem 0; }
+    .course-card:hover { transform: none; box-shadow: none; }
+    body { background: #fff; }
+    .section { padding: 2rem 0; }
   }
 </style>
 </head>
@@ -490,41 +692,61 @@
 <!-- ==================== HERO ==================== -->
 <div class="hero">
   <div class="hero-content">
-    <div class="hero-badge">企业AI转型加速计划</div>
-    <h1>
-      <span class="hero-highlight">AI全栈赋能</span><br>
-      实战训练营
-    </h1>
+    <div class="hero-badge">Enterprise AI Training Program</div>
+    <h1 class="hero-title">AI全栈赋能<span>实战训练营</span></h1>
     <p class="hero-subtitle">
-      从AI小白到独当一面的AI应用者<br>
-      帮助每个人、每个部门找到属于自己的AI工作流
+      专为教培行业年轻团队定制 · 每周2小时 · 12周蜕变<br>
+      从AI小白到独立开发自己的APP
     </p>
-    <a href="#curriculum" class="hero-cta">
-      <span>查看完整课程</span>
-      <span>→</span>
-    </a>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-value">12</div>
+        <div class="hero-meta-label">周课程体系</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-value">120</div>
+        <div class="hero-meta-label">分钟 / 每节</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-value">70%+</div>
+        <div class="hero-meta-label">实操比例</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-value">30+</div>
+        <div class="hero-meta-label">AI工具覆盖</div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- ==================== STATS ==================== -->
-<div class="bg-light">
+<!-- ==================== CLIENT PROFILE ==================== -->
+<div class="bg-surface">
   <div class="main-container section">
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-number">8</div>
-        <div class="stat-label">核心模块</div>
+    <div class="section-header">
+      <div class="section-label">About Client</div>
+      <div class="section-title">客户画像 · 量身定制</div>
+      <p class="section-desc">深入理解企业特征与学员需求，确保每一节课都精准匹配实际工作场景</p>
+    </div>
+    <div class="profile-grid">
+      <div class="profile-card">
+        <div class="profile-icon" style="background: #eff6ff;">🏢</div>
+        <h4>企业类型</h4>
+        <p>教培机构，专注留学生就业服务，团队年轻化，追求实效落地</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">24+</div>
-        <div class="stat-label">实战课时</div>
+      <div class="profile-card">
+        <div class="profile-icon" style="background: #f0fdf4;">👥</div>
+        <h4>学员特征</h4>
+        <p>以90后、00后年轻人为主，学习能力强，追求有趣高效的技能提升</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">15+</div>
-        <div class="stat-label">AI工具掌握</div>
+      <div class="profile-card">
+        <div class="profile-icon" style="background: #fefce8;">🏗️</div>
+        <h4>部门覆盖</h4>
+        <p>市场部 · 教学部 · 销售部 · 中台<br>按报名制分批参训，各部门基础不同</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">100%</div>
-        <div class="stat-label">动手实操</div>
+      <div class="profile-card">
+        <div class="profile-icon" style="background: #fef2f2;">⏰</div>
+        <h4>培训节奏</h4>
+        <p>工作日授课，单次≤2小时，按周期推进，渐进式技能升级</p>
       </div>
     </div>
   </div>
@@ -534,466 +756,912 @@
 <div class="bg-dark">
   <div class="main-container section">
     <div class="section-header">
-      <div class="section-label">Training Philosophy</div>
+      <div class="section-label">Our Approach</div>
       <div class="section-title">课程设计理念</div>
-      <p class="section-desc">不是教你"AI是什么",而是带你"用AI做什么"</p>
+      <p class="section-desc">拒绝说教式填鸭培训，用「做中学」的方式让每位学员真正掌握AI技能</p>
     </div>
     <div class="philosophy-grid">
       <div class="philosophy-item">
-        <div class="philosophy-number">🎯</div>
-        <h4>场景驱动</h4>
-        <p>每节课都围绕真实工作场景设计,学完立刻能用,不讲废话不兜圈子</p>
+        <div class="philosophy-number">01</div>
+        <h4>做中学，不听课</h4>
+        <p>每节课至少70%时间动手实操，理论讲解不超过20分钟，上课就像Workshop，下课就有作品</p>
       </div>
       <div class="philosophy-item">
-        <div class="philosophy-number">💪</div>
-        <h4>技能本位</h4>
-        <p>从"会用ChatGPT"到"能搭建AI工作流",逐步提升AI应用能力等级</p>
+        <div class="philosophy-number">02</div>
+        <h4>课程剧情化</h4>
+        <p>12节课如同连续剧，每节课埋伏笔、留悬念，用「下集预告」的方式让学员对下次课充满期待</p>
       </div>
       <div class="philosophy-item">
-        <div class="philosophy-number">🛠️</div>
-        <h4>工具组合</h4>
-        <p>不只讲一个工具,而是教你如何把多个AI工具串联成完整解决方案</p>
+        <div class="philosophy-number">03</div>
+        <h4>场景即课堂</h4>
+        <p>所有案例紧贴留学教培行业，市场推广、课程设计、客户跟进……用自己的工作内容练AI</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ==================== CURRICULUM ==================== -->
-<div class="bg-light" id="curriculum">
-  <div class="main-container section">
+<!-- ==================== TOOL ECOSYSTEM ==================== -->
+<div class="bg-dark" style="padding-top: 0;">
+  <div class="main-container" style="padding-bottom: 5rem;">
     <div class="section-header">
-      <div class="section-label">Course Modules</div>
-      <div class="section-title">完整课程体系</div>
-      <p class="section-desc">从基础到高级,循序渐进掌握AI全栈技能</p>
+      <div class="section-label">Tech Stack</div>
+      <div class="section-title">覆盖AI工具生态（2025-2026最新版本）</div>
+      <p class="section-desc">横跨国际与国产顶级AI工具，学到的不是某一个软件，而是一整套AI工作方法论</p>
     </div>
-    
-    <div class="module-grid">
-      
-      <!-- Module 1 -->
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-meta">
-            <div class="module-number">1</div>
-            <div class="module-badge">基础入门</div>
-          </div>
-          <h3 class="module-title">AI大模型基础与工具矩阵</h3>
-          <p class="module-desc">打好基础,搭建AI工具库,了解行业格局</p>
-        </div>
-        <div class="module-body">
-          <div class="lesson-list">
-            <div class="lesson-item">
-              <div class="lesson-number">1.1</div>
-              <div class="lesson-content">
-                <h4>AI大模型格局与能力边界</h4>
-                <p>理解GPT、Claude、Gemini等主流模型的核心差异,掌握"什么场景用什么模型"的判断力</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">行业认知</span>
-                  <span class="lesson-tag">模型选型</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">1.2</div>
-              <div class="lesson-content">
-                <h4>搭建你的AI工具矩阵</h4>
-                <p>手把手配置ChatGPT、Claude、Cursor、Kimi等工具账号,建立个人AI工具库</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">工具配置</span>
-                  <span class="lesson-tag">账号管理</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">1.3</div>
-              <div class="lesson-content">
-                <h4>Prompt工程入门</h4>
-                <p>学会"跟AI说人话",掌握基础提示词技巧,让AI理解你的真实意图</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">提示工程</span>
-                  <span class="lesson-tag">对话技巧</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="tool-grid">
+      <div class="tool-item">
+        <div class="tool-name">ChatGPT / GPT-5</div>
+        <div class="tool-type">OpenAI · 对话+多模态</div>
       </div>
-
-      <!-- Module 2 -->
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-meta">
-            <div class="module-number">2</div>
-            <div class="module-badge">内容创作</div>
-          </div>
-          <h3 class="module-title">AI内容创作全流程</h3>
-          <p class="module-desc">从零到一生成高质量文案、图片、视频内容</p>
-        </div>
-        <div class="module-body">
-          <div class="lesson-list">
-            <div class="lesson-item">
-              <div class="lesson-number">2.1</div>
-              <div class="lesson-content">
-                <h4>AI文案创作实战</h4>
-                <p>用AI生成小红书/公众号/视频号文案,掌握不同平台的内容调性与爆款公式</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">文案写作</span>
-                  <span class="lesson-tag">内容策略</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">2.2</div>
-              <div class="lesson-content">
-                <h4>AI图像生成与设计</h4>
-                <p>用Midjourney/Flux等工具生成营销海报、产品图、品牌视觉素材</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">图像生成</span>
-                  <span class="lesson-tag">视觉设计</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">2.3</div>
-              <div class="lesson-content">
-                <h4>AI视频制作入门</h4>
-                <p>用剪映/CapCut AI功能批量生成短视频,掌握文本转视频、AI配音、智能剪辑</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">视频制作</span>
-                  <span class="lesson-tag">自动化剪辑</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="tool-item">
+        <div class="tool-name">Claude Opus 4</div>
+        <div class="tool-type">Anthropic · 长文+分析</div>
       </div>
-
-      <!-- Module 3 -->
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-meta">
-            <div class="module-number">3</div>
-            <div class="module-badge">数据处理</div>
-          </div>
-          <h3 class="module-title">AI数据分析与自动化</h3>
-          <p class="module-desc">让AI帮你处理Excel、生成报表、做数据洞察</p>
-        </div>
-        <div class="module-body">
-          <div class="lesson-list">
-            <div class="lesson-item">
-              <div class="lesson-number">3.1</div>
-              <div class="lesson-content">
-                <h4>AI辅助Excel数据处理</h4>
-                <p>用ChatGPT生成公式、清洗数据、做数据透视,告别繁琐的Excel操作</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">Excel自动化</span>
-                  <span class="lesson-tag">数据清洗</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">3.2</div>
-              <div class="lesson-content">
-                <h4>AI数据可视化</h4>
-                <p>用Claude Artifacts、Cursor生成可交互的数据图表与Dashboard</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">数据可视化</span>
-                  <span class="lesson-tag">交互式图表</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">3.3</div>
-              <div class="lesson-content">
-                <h4>AI驱动的业务洞察</h4>
-                <p>让AI帮你读懂数据背后的趋势,生成业务分析报告和决策建议</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">商业智能</span>
-                  <span class="lesson-tag">决策支持</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="tool-item">
+        <div class="tool-name">Gemini 2.5</div>
+        <div class="tool-type">Google · 多模态理解</div>
       </div>
-
-      <!-- Module 4 -->
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-meta">
-            <div class="module-number">4</div>
-            <div class="module-badge">智能搜索</div>
-          </div>
-          <h3 class="module-title">AI搜索与信息聚合</h3>
-          <p class="module-desc">超越传统搜索引擎,用AI做深度信息挖掘</p>
-        </div>
-        <div class="module-body">
-          <div class="lesson-list">
-            <div class="lesson-item">
-              <div class="lesson-number">4.1</div>
-              <div class="lesson-content">
-                <h4>Perplexity与NotebookLM深度搜索</h4>
-                <p>用AI搜索引擎快速获取行业报告、竞品分析、学术资料,并生成结构化摘要</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">AI搜索</span>
-                  <span class="lesson-tag">信息整合</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">4.2</div>
-              <div class="lesson-content">
-                <h4>AI辅助竞品分析</h4>
-                <p>用Deep Research功能深度调研行业趋势、竞争对手策略、用户评价</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">竞品研究</span>
-                  <span class="lesson-tag">市场洞察</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">4.3</div>
-              <div class="lesson-content">
-                <h4>构建个人知识库</h4>
-                <p>用NotebookLM整理行业资料、内部文档,搭建可检索的企业知识库</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">知识管理</span>
-                  <span class="lesson-tag">企业知识库</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="tool-item">
+        <div class="tool-name">豆包 / 扣子</div>
+        <div class="tool-type">字节跳动 · 国产全能</div>
       </div>
-
-      <!-- Module 5 -->
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-meta">
-            <div class="module-number">5</div>
-            <div class="module-badge">智能体搭建</div>
-          </div>
-          <h3 class="module-title">AI Agent与自动化工作流</h3>
-          <p class="module-desc">零代码搭建专属AI助手与自动化流程</p>
-        </div>
-        <div class="module-body">
-          <div class="lesson-list">
-            <div class="lesson-item">
-              <div class="lesson-number">5.1</div>
-              <div class="lesson-content">
-                <h4>用扣子(Coze)搭建AI Bot</h4>
-                <p>零代码创建客服机器人、知识库问答助手、内容生成Bot</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">Bot开发</span>
-                  <span class="lesson-tag">零代码</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">5.2</div>
-              <div class="lesson-content">
-                <h4>OpenClaw私人助手配置</h4>
-                <p>搭建个性化AI助手,定制专属Prompt与知识库,让AI理解你的工作习惯</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">个人助手</span>
-                  <span class="lesson-tag">定制化</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">5.3</div>
-              <div class="lesson-content">
-                <h4>自动化工作流设计</h4>
-                <p>用Make/Zapier串联多个AI工具,实现"从内容生成→发布→数据反馈"全流程自动化</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">工作流自动化</span>
-                  <span class="lesson-tag">工具集成</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="tool-item">
+        <div class="tool-name">通义千问 / 万相</div>
+        <div class="tool-type">阿里云 · 文案+图像</div>
       </div>
-
-      <!-- Module 6 -->
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-meta">
-            <div class="module-number">6</div>
-            <div class="module-badge">AI编程</div>
-          </div>
-          <h3 class="module-title">AI辅助编程与工具开发</h3>
-          <p class="module-desc">让非程序员也能用AI开发小工具、做数据脚本</p>
-        </div>
-        <div class="module-body">
-          <div class="lesson-list">
-            <div class="lesson-item">
-              <div class="lesson-number">6.1</div>
-              <div class="lesson-content">
-                <h4>Cursor AI编程入门</h4>
-                <p>用AI辅助写Python脚本、自动化任务,无需编程基础也能开发实用工具</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">AI编程</span>
-                  <span class="lesson-tag">Python</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">6.2</div>
-              <div class="lesson-content">
-                <h4>Vibe Coding快速开发小程序</h4>
-                <p>用Vibe平台快速搭建内部管理工具、数据看板、表单收集小应用</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">快速开发</span>
-                  <span class="lesson-tag">低代码</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">6.3</div>
-              <div class="lesson-content">
-                <h4>实战:开发部门专属工具</h4>
-                <p>结合实际需求,用AI开发一个真实可用的业务小工具(如客户跟进提醒、数据采集爬虫)</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">项目实战</span>
-                  <span class="lesson-tag">业务应用</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="tool-item">
+        <div class="tool-name">Midjourney v7</div>
+        <div class="tool-type">文生图标杆</div>
       </div>
-
-      <!-- Module 7 -->
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-meta">
-            <div class="module-number">7</div>
-            <div class="module-badge">AI音视频</div>
-          </div>
-          <h3 class="module-title">AI音频与数字人制作</h3>
-          <p class="module-desc">用AI生成语音、音乐、数字人视频</p>
-        </div>
-        <div class="module-body">
-          <div class="lesson-list">
-            <div class="lesson-item">
-              <div class="lesson-number">7.1</div>
-              <div class="lesson-content">
-                <h4>AI配音与音频制作</h4>
-                <p>用ElevenLabs/ChatTTS生成多语言配音,制作播客、有声书、视频旁白</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">AI配音</span>
-                  <span class="lesson-tag">语音合成</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">7.2</div>
-              <div class="lesson-content">
-                <h4>AI数字人视频生成</h4>
-                <p>用HeyGen/D-ID快速制作数字人播报视频,应用于课程讲解、产品介绍</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">数字人</span>
-                  <span class="lesson-tag">视频生成</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">7.3</div>
-              <div class="lesson-content">
-                <h4>AI音乐生成</h4>
-                <p>用Suno/Udio生成背景音乐、品牌主题曲,为营销视频配乐</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">音乐生成</span>
-                  <span class="lesson-tag">音效制作</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="tool-item">
+        <div class="tool-name">可灵 / Runway</div>
+        <div class="tool-type">AI视频生成</div>
       </div>
-
-      <!-- Module 8 -->
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-meta">
-            <div class="module-number">8</div>
-            <div class="module-badge">综合实战</div>
-          </div>
-          <h3 class="module-title">AI全栈项目实战</h3>
-          <p class="module-desc">综合运用所学技能,完成端到端AI项目</p>
-        </div>
-        <div class="module-body">
-          <div class="lesson-list">
-            <div class="lesson-item">
-              <div class="lesson-number">8.1</div>
-              <div class="lesson-content">
-                <h4>营销活动全流程AI化</h4>
-                <p>从策划→文案→海报→视频→投放→数据分析,用AI完成整个营销闭环</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">营销自动化</span>
-                  <span class="lesson-tag">全流程</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">8.2</div>
-              <div class="lesson-content">
-                <h4>客户服务AI化改造</h4>
-                <p>搭建智能客服Bot+知识库问答+自动跟进提醒的完整客服系统</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">客服系统</span>
-                  <span class="lesson-tag">智能化</span>
-                </div>
-              </div>
-            </div>
-            <div class="lesson-item">
-              <div class="lesson-number">8.3</div>
-              <div class="lesson-content">
-                <h4>个人AI工作流定制</h4>
-                <p>每位学员输出一份"我的AI工作流地图",明确日常工作中哪些环节可以AI化</p>
-                <div class="lesson-tags">
-                  <span class="lesson-tag">个人定制</span>
-                  <span class="lesson-tag">流程优化</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="tool-item">
+        <div class="tool-name">Manus 1.6</div>
+        <div class="tool-type">Meta · 通用AI Agent</div>
       </div>
-
+      <div class="tool-item">
+        <div class="tool-name">OpenClaw</div>
+        <div class="tool-type">开源AI Agent</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-name">Cursor / Bolt.new</div>
+        <div class="tool-type">Vibe Coding</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-name">Lovable / v0</div>
+        <div class="tool-type">零代码建站</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-name">Gamma / 美图AI</div>
+        <div class="tool-type">PPT+设计</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-name">DeepSeek-R1</div>
+        <div class="tool-type">国产推理模型</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-name">Kimi / 智谱</div>
+        <div class="tool-type">长文档+搜索</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-name">即梦 / 醒图</div>
+        <div class="tool-type">AI修图+设计</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-name">Suno / 天工</div>
+        <div class="tool-type">AI音乐+创意</div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ==================== DEPARTMENTS ==================== -->
-<div class="bg-light">
+<!-- ==================== COURSE OUTLINE ==================== -->
+<div class="bg-white">
   <div class="main-container section">
     <div class="section-header">
-      <div class="section-label">Department Application</div>
-      <div class="section-title">各部门AI应用场景</div>
-      <p class="section-desc">每个部门都能找到自己的AI落地方案</p>
+      <div class="section-label">Full Curriculum</div>
+      <div class="section-title">12周完整课程大纲</div>
+      <p class="section-desc">四大阶段递进，从认知启蒙到独立创造，每一步都为下一步做好铺垫</p>
+    </div>
+
+    <!-- ========== PHASE 1 ========== -->
+    <div class="phase-divider">
+      <div class="phase-badge theme-blue">第一阶段：AI认知启蒙</div>
+      <p class="phase-subtitle">打开AI世界的大门，建立全局认知，点燃学习热情</p>
+    </div>
+
+    <!-- WEEK 1 -->
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-number-block theme-blue">
+          <div class="course-number">01</div>
+          <div class="course-week">Week 1</div>
+        </div>
+        <div class="course-info">
+          <div class="course-title">AI新世界：打开你的超级工具箱</div>
+          <div class="course-tagline">一节课看遍AI能做的所有酷事，安装你的第一个AI私人助手</div>
+          <div class="course-tags">
+            <span class="tag tag-tool">ChatGPT</span>
+            <span class="tag tag-tool">Claude</span>
+            <span class="tag tag-tool">豆包</span>
+            <span class="tag tag-tool">Midjourney</span>
+            <span class="tag tag-tool">可灵</span>
+            <span class="tag tag-tool">Gamma</span>
+            <span class="tag tag-tool">OpenClaw</span>
+            <span class="tag tag-hot">🔥 开篇大课</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-section">
+          <div class="course-section-title">课程内容</div>
+          <ul class="course-content-list">
+            <li><strong>AI是什么？</strong> — 用3分钟通俗讲清大模型工作原理（输入→理解→生成），不讲数学公式，只讲直觉</li>
+            <li><strong>国际AI大模型巡礼</strong> — ChatGPT（GPT-5）、Claude（Opus 4）、Gemini 2.5、Grok，现场演示各自特长</li>
+            <li><strong>国产AI大模型巡礼</strong> — 豆包/扣子、通义千问、DeepSeek-R1、Kimi、智谱清言，对比国际模型的独特优势</li>
+            <li><strong>AI能力快闪秀</strong>（每项2-3分钟演示+推荐1-2个最佳工具）：
+              <br>— 文生图：<span class="tool-highlight">Midjourney v7</span> / <span class="tool-highlight">即梦AI</span>
+              <br>— 文生视频：<span class="tool-highlight">可灵AI</span> / <span class="tool-highlight">Runway Gen-4</span>
+              <br>— AI修图：<span class="tool-highlight">醒图</span> / <span class="tool-highlight">美图AI</span>
+              <br>— AI做PPT：<span class="tool-highlight">Gamma</span> / <span class="tool-highlight">AiPPT</span>
+              <br>— AI写文案：<span class="tool-highlight">Claude</span> / <span class="tool-highlight">豆包</span>
+              <br>— AI数据分析：<span class="tool-highlight">ChatGPT高级数据分析</span>
+              <br>— AI音乐：<span class="tool-highlight">Suno v4</span>
+              <br>— Vibe Coding（预告）：<span class="tool-highlight">Bolt.new</span> 30秒演示生成一个网页APP</li>
+            <li><strong>Agent时代来临</strong> — 讲解AI Agent概念：从"你问我答"到"我替你干活"，引出OpenClaw</li>
+            <li><strong>🦞 实操：安装你的龙虾机器人</strong> — 带领每位学员安装配置OpenClaw，连接到微信/飞书/Telegram，完成第一次对话</li>
+          </ul>
+        </div>
+        <div class="course-section">
+          <div class="course-section-title">课时分配（120分钟）</div>
+          <div class="time-bar">
+            <div class="time-theory" style="width: 20%;"></div>
+            <div class="time-demo" style="width: 30%;"></div>
+            <div class="time-practice" style="width: 40%;"></div>
+            <div class="time-share" style="width: 10%;"></div>
+          </div>
+          <div class="time-legend">
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--accent);"></div>理论 20min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--purple);"></div>演示 35min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--success);"></div>实操 50min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--orange);"></div>互动 15min</div>
+          </div>
+        </div>
+        <div class="course-hook">
+          <p>下节预告：学会了这么多工具，但AI回答的质量取决于你"问的方式"。下周带你掌握和AI高效沟通的秘密武器——Prompt Engineering，学会后同样的工具效果翻倍！</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 2 -->
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-number-block theme-purple">
+          <div class="course-number">02</div>
+          <div class="course-week">Week 2</div>
+        </div>
+        <div class="course-info">
+          <div class="course-title">和AI说话的艺术：Prompt工程实战</div>
+          <div class="course-tagline">掌握提示词心法，让同一个AI工具产出质量飙升10倍</div>
+          <div class="course-tags">
+            <span class="tag tag-tool">ChatGPT</span>
+            <span class="tag tag-tool">Claude</span>
+            <span class="tag tag-tool">豆包</span>
+            <span class="tag tag-tool">扣子</span>
+            <span class="tag tag-tool">OpenClaw</span>
+            <span class="tag tag-skill">核心底层能力</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-section">
+          <div class="course-section-title">课程内容</div>
+          <ul class="course-content-list">
+            <li><strong>Prompt的本质</strong> — 为什么同一个问题不同问法结果天差地别？现场对比演示</li>
+            <li><strong>黄金公式</strong> — 角色设定 + 任务描述 + 输出格式 + 约束条件 + 示例参考，逐个拆解练习</li>
+            <li><strong>六大Prompt高级技巧</strong> — 思维链（CoT）、Few-shot、角色扮演、分步拆解、自我反思、结构化输出</li>
+            <li><strong>实操练习1：留学文案生成器</strong> — 用Prompt让ChatGPT/Claude为不同国家、不同专业的留学生写出定制化求职简历摘要</li>
+            <li><strong>实操练习2：打造部门专属AI助手</strong> — 在 <span class="tool-highlight">扣子（Coze）</span> 平台搭建一个带预设Prompt的AI Bot，市场部做营销文案Bot、销售部做客户跟进Bot</li>
+            <li><strong>OpenClaw联动</strong> — 为你的龙虾机器人配置专属人设和技能指令，让它成为你的"私人AI助理"</li>
+          </ul>
+        </div>
+        <div class="course-section">
+          <div class="course-section-title">课时分配（120分钟）</div>
+          <div class="time-bar">
+            <div class="time-theory" style="width: 15%;"></div>
+            <div class="time-demo" style="width: 15%;"></div>
+            <div class="time-practice" style="width: 60%;"></div>
+            <div class="time-share" style="width: 10%;"></div>
+          </div>
+          <div class="time-legend">
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--accent);"></div>理论 18min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--purple);"></div>演示 18min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--success);"></div>实操 72min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--orange);"></div>分享 12min</div>
+          </div>
+        </div>
+        <div class="course-hook">
+          <p>下节预告：掌握了和AI沟通的秘诀，下周我们进入AI内容创作的第一站——用AI批量生产高质量的市场营销文案和小红书/公众号内容，市场部和销售部准备好了吗？</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== PHASE 2 ========== -->
+    <div class="phase-divider">
+      <div class="phase-badge theme-teal">第二阶段：AI内容创作</div>
+      <p class="phase-subtitle">用AI武装你的日常工作，文案、图片、视频、PPT全面升级</p>
+    </div>
+
+    <!-- WEEK 3 -->
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-number-block theme-teal">
+          <div class="course-number">03</div>
+          <div class="course-week">Week 3</div>
+        </div>
+        <div class="course-info">
+          <div class="course-title">AI文案工厂：从爆款推文到专业报告</div>
+          <div class="course-tagline">用AI写出让人停不下来的营销文案，10分钟搞定一周内容</div>
+          <div class="course-tags">
+            <span class="tag tag-tool">Claude</span>
+            <span class="tag tag-tool">ChatGPT</span>
+            <span class="tag tag-tool">豆包</span>
+            <span class="tag tag-tool">Kimi</span>
+            <span class="tag tag-tool">DeepSeek</span>
+            <span class="tag tag-dept">市场部+销售部重点</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-section">
+          <div class="course-section-title">课程内容</div>
+          <ul class="course-content-list">
+            <li><strong>AI写作能力对比</strong> — 现场PK：同一个留学行业话题，ChatGPT vs Claude vs 豆包 vs DeepSeek写出什么？各自最擅长什么场景？</li>
+            <li><strong>小红书/公众号爆款公式</strong> — 用AI生成标题、正文、话题标签，配合 <span class="tool-highlight">Kimi</span> 的长文分析能力做竞品内容分析</li>
+            <li><strong>留学行业文案矩阵</strong> — 批量生成：留学申请案例包装、就业指导文案、学员成功故事模板、招生话术脚本</li>
+            <li><strong>AI长文档处理</strong> — 用 <span class="tool-highlight">Kimi</span> / <span class="tool-highlight">Claude</span> 阅读分析留学行业报告PDF，一键提取核心数据，生成洞察摘要</li>
+            <li><strong>实操：每人产出3篇</strong> — 1篇小红书图文、1篇公众号长文框架、1篇客户成功案例（使用自己部门的真实素材）</li>
+            <li><strong>OpenClaw联动</strong> — 教OpenClaw自动监控行业热点关键词，定时推送灵感素材到群聊</li>
+          </ul>
+        </div>
+        <div class="course-section">
+          <div class="course-section-title">课时分配（120分钟）</div>
+          <div class="time-bar">
+            <div class="time-theory" style="width: 10%;"></div>
+            <div class="time-demo" style="width: 20%;"></div>
+            <div class="time-practice" style="width: 60%;"></div>
+            <div class="time-share" style="width: 10%;"></div>
+          </div>
+          <div class="time-legend">
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--accent);"></div>理论 12min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--purple);"></div>演示 24min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--success);"></div>实操 72min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--orange);"></div>分享 12min</div>
+          </div>
+        </div>
+        <div class="course-hook">
+          <p>下节预告：文案有了，但好的内容需要好的视觉。下周进入AI图像创作，学会用AI生成媲美专业设计师的营销配图、社交媒体Banner和品牌视觉素材！</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 4 -->
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-number-block theme-emerald">
+          <div class="course-number">04</div>
+          <div class="course-week">Week 4</div>
+        </div>
+        <div class="course-info">
+          <div class="course-title">AI视觉魔法：从文生图到品牌设计</div>
+          <div class="course-tagline">零设计基础也能产出专业级视觉内容，告别P图焦虑</div>
+          <div class="course-tags">
+            <span class="tag tag-tool">Midjourney v7</span>
+            <span class="tag tag-tool">即梦AI</span>
+            <span class="tag tag-tool">醒图</span>
+            <span class="tag tag-tool">美图AI</span>
+            <span class="tag tag-tool">通义万相</span>
+            <span class="tag tag-dept">全员适用</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-section">
+          <div class="course-section-title">课程内容</div>
+          <ul class="course-content-list">
+            <li><strong>AI绘画原理速览</strong> — 2分钟理解扩散模型，明白为什么Prompt对图片影响这么大</li>
+            <li><strong>Midjourney v7 实战</strong> — 学会核心参数（--ar, --stylize, --chaos等），从一句话到一张惊艳大图</li>
+            <li><strong>国产文生图利器</strong> — <span class="tool-highlight">即梦AI</span>（字节出品，中文提示词更友好）、<span class="tool-highlight">通义万相</span>（阿里出品，商用免费）现场对比</li>
+            <li><strong>AI修图实操</strong> — <span class="tool-highlight">醒图</span> 一键消除、扩展、换背景；<span class="tool-highlight">美图AI</span> 证件照/商务照/团队照生成</li>
+            <li><strong>留学行业设计套餐</strong> — 现场制作：招生海报、学员成功案例卡片、社交媒体Banner、活动宣传图</li>
+            <li><strong>OpenClaw联动</strong> — 配置龙虾给你的OpenClaw添加图像生成Skill，发消息即可出图</li>
+          </ul>
+        </div>
+        <div class="course-section">
+          <div class="course-section-title">课时分配（120分钟）</div>
+          <div class="time-bar">
+            <div class="time-theory" style="width: 8%;"></div>
+            <div class="time-demo" style="width: 22%;"></div>
+            <div class="time-practice" style="width: 60%;"></div>
+            <div class="time-share" style="width: 10%;"></div>
+          </div>
+          <div class="time-legend">
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--accent);"></div>理论 10min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--purple);"></div>演示 26min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--success);"></div>实操 72min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--orange);"></div>分享 12min</div>
+          </div>
+        </div>
+        <div class="course-hook">
+          <p>下节预告：图片会做了，视频时代怎么能缺席？下周进入AI视频制作，用AI生成短视频、产品宣传片、甚至虚拟数字人——这才是2026年流量密码！</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 5 -->
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-number-block theme-rose">
+          <div class="course-number">05</div>
+          <div class="course-week">Week 5</div>
+        </div>
+        <div class="course-info">
+          <div class="course-title">AI视频创作：从脚本到成片的全流程</div>
+          <div class="course-tagline">不会剪辑也能做视频，AI帮你从写脚本到生成成品一条龙</div>
+          <div class="course-tags">
+            <span class="tag tag-tool">可灵AI</span>
+            <span class="tag tag-tool">Runway Gen-4</span>
+            <span class="tag tag-tool">即梦视频</span>
+            <span class="tag tag-tool">剪映AI</span>
+            <span class="tag tag-tool">HeyGen</span>
+            <span class="tag tag-hot">🔥 流量密码</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-section">
+          <div class="course-section-title">课程内容</div>
+          <ul class="course-content-list">
+            <li><strong>AI视频生成对比</strong> — <span class="tool-highlight">可灵AI</span>（国产标杆）vs <span class="tool-highlight">Runway Gen-4</span>（国际顶级）vs <span class="tool-highlight">即梦视频</span>（免费易用），各有什么绝活？</li>
+            <li><strong>文生视频实操</strong> — 一句话描述→生成5秒视频片段，学会关键参数调控（运镜、风格、节奏）</li>
+            <li><strong>图生视频进阶</strong> — 用第4节课做的海报图直接变成动态宣传视频</li>
+            <li><strong>AI数字人</strong> — <span class="tool-highlight">HeyGen</span> 克隆一个虚拟数字人，录制留学咨询欢迎视频（中英文自动切换）</li>
+            <li><strong>剪映AI功能</strong> — AI字幕、AI配音、AI脚本、图文成片，5分钟完成一条抖音/小红书短视频</li>
+            <li><strong>实操任务</strong> — 每人完成1条15-30秒的留学行业短视频（招生宣传/学员故事/行业知识科普）</li>
+          </ul>
+        </div>
+        <div class="course-section">
+          <div class="course-section-title">课时分配（120分钟）</div>
+          <div class="time-bar">
+            <div class="time-theory" style="width: 8%;"></div>
+            <div class="time-demo" style="width: 22%;"></div>
+            <div class="time-practice" style="width: 58%;"></div>
+            <div class="time-share" style="width: 12%;"></div>
+          </div>
+          <div class="time-legend">
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--accent);"></div>理论 10min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--purple);"></div>演示 26min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--success);"></div>实操 70min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--orange);"></div>分享 14min</div>
+          </div>
+        </div>
+        <div class="course-hook">
+          <p>下节预告：内容三件套（文案+图片+视频）已解锁！下周进入AI办公效率革命——用AI做PPT、处理Excel、写邮件，把你最痛苦的重复工作全部交给AI！</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== PHASE 3 ========== -->
+    <div class="phase-divider">
+      <div class="phase-badge theme-orange">第三阶段：AI效率革命</div>
+      <p class="phase-subtitle">让AI接管你的重复性工作，释放创造力聚焦高价值事务</p>
+    </div>
+
+    <!-- WEEK 6 -->
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-number-block theme-orange">
+          <div class="course-number">06</div>
+          <div class="course-week">Week 6</div>
+        </div>
+        <div class="course-info">
+          <div class="course-title">AI办公神器：PPT/文档/表格效率革命</div>
+          <div class="course-tagline">告别加班：用AI把2天的PPT缩短到20分钟，把1小时的表格变成1分钟</div>
+          <div class="course-tags">
+            <span class="tag tag-tool">Gamma</span>
+            <span class="tag tag-tool">AiPPT</span>
+            <span class="tag tag-tool">ChatGPT</span>
+            <span class="tag tag-tool">Claude</span>
+            <span class="tag tag-tool">WPS AI</span>
+            <span class="tag tag-dept">全员刚需</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-section">
+          <div class="course-section-title">课程内容</div>
+          <ul class="course-content-list">
+            <li><strong>AI做PPT对决</strong> — <span class="tool-highlight">Gamma</span>（国际最佳）vs <span class="tool-highlight">AiPPT</span>（国产推荐）：一句话/一篇文档→专业演示文稿</li>
+            <li><strong>PPT精修技巧</strong> — AI生成后如何微调排版、替换素材、保持品牌一致性，10分钟出一版可以直接汇报的PPT</li>
+            <li><strong>AI处理Excel</strong> — 用 <span class="tool-highlight">ChatGPT 高级数据分析</span> 上传表格自动生成图表、透视表、数据洞察</li>
+            <li><strong>AI写邮件/报告</strong> — <span class="tool-highlight">Claude</span> 写长报告、行业分析、商务邮件，<span class="tool-highlight">豆包</span> 做会议纪要和日报周报</li>
+            <li><strong>国产办公AI</strong> — <span class="tool-highlight">WPS AI</span> / <span class="tool-highlight">飞书智能助手</span> 在现有办公软件中直接用AI</li>
+            <li><strong>实操任务</strong> — 每人用AI完成：1份汇报PPT + 1份数据分析图表 + 1封商务邮件</li>
+          </ul>
+        </div>
+        <div class="course-section">
+          <div class="course-section-title">课时分配（120分钟）</div>
+          <div class="time-bar">
+            <div class="time-theory" style="width: 8%;"></div>
+            <div class="time-demo" style="width: 20%;"></div>
+            <div class="time-practice" style="width: 62%;"></div>
+            <div class="time-share" style="width: 10%;"></div>
+          </div>
+          <div class="time-legend">
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--accent);"></div>理论 10min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--purple);"></div>演示 24min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--success);"></div>实操 74min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--orange);"></div>分享 12min</div>
+          </div>
+        </div>
+        <div class="course-hook">
+          <p>下节预告：单个工具用得溜了，但能不能让AI自动帮你完成一整套工作流程？下周进入AI自动化工作流——学会搭积木式把多个AI工具串联起来，打造你的专属自动化流水线！</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 7 -->
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-number-block theme-amber">
+          <div class="course-number">07</div>
+          <div class="course-week">Week 7</div>
+        </div>
+        <div class="course-info">
+          <div class="course-title">AI自动化工作流：让AI替你干一整套活</div>
+          <div class="course-tagline">搭积木式构建自动化流程，从手动操作到AI全自动流水线</div>
+          <div class="course-tags">
+            <span class="tag tag-tool">扣子（Coze）</span>
+            <span class="tag tag-tool">Dify</span>
+            <span class="tag tag-tool">Manus</span>
+            <span class="tag tag-tool">OpenClaw</span>
+            <span class="tag tag-hot">🔥 能力跃迁</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-section">
+          <div class="course-section-title">课程内容</div>
+          <ul class="course-content-list">
+            <li><strong>什么是AI工作流？</strong> — 从「一个AI做一件事」到「一套AI完成整个流程」，用留学咨询流程做类比</li>
+            <li><strong>扣子（Coze）工作流搭建</strong> — 可视化拖拽式搭建AI Bot工作流：客户咨询→自动分类→生成回复→推送通知</li>
+            <li><strong>Dify快速入门</strong> — 开源AI应用平台，搭建更灵活的内部AI工具（知识库问答、智能客服）</li>
+            <li><strong>Manus深度体验</strong> — <span class="tool-highlight">Manus 1.6</span> 自主完成复杂任务：批量竞品调研、自动生成分析报告、Wide Research多Agent协作</li>
+            <li><strong>OpenClaw高级玩法</strong> — 为龙虾添加自定义Skill：定时汇总日报、自动整理邮件、监控竞品动态</li>
+            <li><strong>实操任务</strong> — 每人在扣子平台搭建一个可用的部门AI小工具（市场：内容发布助手；销售：客户跟进助手；教学：课程答疑助手）</li>
+          </ul>
+        </div>
+        <div class="course-section">
+          <div class="course-section-title">课时分配（120分钟）</div>
+          <div class="time-bar">
+            <div class="time-theory" style="width: 12%;"></div>
+            <div class="time-demo" style="width: 18%;"></div>
+            <div class="time-practice" style="width: 58%;"></div>
+            <div class="time-share" style="width: 12%;"></div>
+          </div>
+          <div class="time-legend">
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--accent);"></div>理论 15min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--purple);"></div>演示 22min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--success);"></div>实操 69min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--orange);"></div>分享 14min</div>
+          </div>
+        </div>
+        <div class="course-hook">
+          <p>下节预告：工作流搭好了，但如果能让AI帮你搜索信息、分析竞品、做深度研究呢？下周学习AI深度研究与数据分析，让AI成为你的智囊团首席分析师！</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 8 -->
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-number-block theme-cyan">
+          <div class="course-number">08</div>
+          <div class="course-week">Week 8</div>
+        </div>
+        <div class="course-info">
+          <div class="course-title">AI深度研究与数据洞察</div>
+          <div class="course-tagline">让AI成为你的首席分析师，深度搜索+数据分析+竞品情报一站搞定</div>
+          <div class="course-tags">
+            <span class="tag tag-tool">ChatGPT Deep Research</span>
+            <span class="tag tag-tool">Gemini Deep Research</span>
+            <span class="tag tag-tool">Manus Wide Research</span>
+            <span class="tag tag-tool">Kimi</span>
+            <span class="tag tag-tool">秘塔搜索</span>
+            <span class="tag tag-dept">中台+管理层重点</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-section">
+          <div class="course-section-title">课程内容</div>
+          <ul class="course-content-list">
+            <li><strong>AI搜索新范式</strong> — 传统搜索引擎 vs AI搜索（<span class="tool-highlight">秘塔AI搜索</span>、<span class="tool-highlight">Perplexity</span>），一个问题直接获得结构化答案</li>
+            <li><strong>Deep Research实战</strong> — <span class="tool-highlight">ChatGPT Deep Research</span> / <span class="tool-highlight">Gemini Deep Research</span>：一键生成30页深度行业调研报告</li>
+            <li><strong>留学行业情报</strong> — 用AI自动追踪：各国签证政策变化、就业市场趋势、竞品机构动态、热门专业排名</li>
+            <li><strong>数据分析实操</strong> — 上传公司运营数据（脱敏），用ChatGPT分析转化率、获客成本、学员满意度等指标</li>
+            <li><strong>Manus Wide Research</strong> — 多Agent并行深度研究，10分钟完成过去需要一周的行业调研</li>
+            <li><strong>实操任务</strong> — 每人完成1份AI驱动的行业小报告（选题自定：目标国家就业市场/竞品分析/行业趋势）</li>
+          </ul>
+        </div>
+        <div class="course-section">
+          <div class="course-section-title">课时分配（120分钟）</div>
+          <div class="time-bar">
+            <div class="time-theory" style="width: 10%;"></div>
+            <div class="time-demo" style="width: 25%;"></div>
+            <div class="time-practice" style="width: 55%;"></div>
+            <div class="time-share" style="width: 10%;"></div>
+          </div>
+          <div class="time-legend">
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--accent);"></div>理论 12min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--purple);"></div>演示 30min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--success);"></div>实操 66min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--orange);"></div>分享 12min</div>
+          </div>
+        </div>
+        <div class="course-hook">
+          <p>下节预告：前8节课你已经是AI应用高手了！但接下来的内容才是真正让人兴奋的——Vibe Coding来了！不用写一行代码，用自然语言就能做出自己的网站和APP，准备好见证魔法吧！</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== PHASE 4 ========== -->
+    <div class="phase-divider">
+      <div class="phase-badge theme-rose">第四阶段：Vibe Coding创造力释放</div>
+      <p class="phase-subtitle">不写代码做APP——从0到1创造属于自己的数字产品</p>
+    </div>
+
+    <!-- WEEK 9 -->
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-number-block theme-indigo">
+          <div class="course-number">09</div>
+          <div class="course-week">Week 9</div>
+        </div>
+        <div class="course-info">
+          <div class="course-title">Vibe Coding入门：说人话就能做网页</div>
+          <div class="course-tagline">不会编程？没关系。用自然语言描述你想要的，AI帮你把它变成现实</div>
+          <div class="course-tags">
+            <span class="tag tag-tool">Bolt.new</span>
+            <span class="tag tag-tool">Lovable</span>
+            <span class="tag tag-tool">v0.dev</span>
+            <span class="tag tag-hot">🔥 零门槛创造</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-section">
+          <div class="course-section-title">课程内容</div>
+          <ul class="course-content-list">
+            <li><strong>什么是Vibe Coding？</strong> — 2025年度词汇，Andrej Karpathy提出的全新编程范式：描述意图→AI写代码→运行→迭代</li>
+            <li><strong>Bolt.new 快速上手</strong> — 打开浏览器→描述你想做什么→30秒生成一个可用网页，无需安装任何东西</li>
+            <li><strong>Lovable 全栈体验</strong> — 从描述到部署：生成带数据库的完整Web应用，像搭积木一样修改功能</li>
+            <li><strong>v0.dev 组件设计</strong> — Vercel出品，AI生成精美的React组件，一键预览和部署</li>
+            <li><strong>Vibe Coding黄金心法</strong> — 如何用清晰的自然语言「指挥」AI写出你想要的东西，Prompt→迭代→精修的工作流</li>
+            <li><strong>实操任务</strong> — 每人用 <span class="tool-highlight">Bolt.new</span> 制作1个个人主页或留学服务Landing Page，课上完成并部署上线</li>
+          </ul>
+        </div>
+        <div class="course-section">
+          <div class="course-section-title">课时分配（120分钟）</div>
+          <div class="time-bar">
+            <div class="time-theory" style="width: 12%;"></div>
+            <div class="time-demo" style="width: 18%;"></div>
+            <div class="time-practice" style="width: 62%;"></div>
+            <div class="time-share" style="width: 8%;"></div>
+          </div>
+          <div class="time-legend">
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--accent);"></div>理论 15min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--purple);"></div>演示 22min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--success);"></div>实操 73min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--orange);"></div>分享 10min</div>
+          </div>
+        </div>
+        <div class="course-hook">
+          <p>下节预告：网页做出来了，那能不能做一个真正有功能的应用？下周升级到Cursor编辑器，做出带用户登录、数据存储的完整应用——不用学编程也能做到！</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 10 -->
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-number-block theme-pink">
+          <div class="course-number">10</div>
+          <div class="course-week">Week 10</div>
+        </div>
+        <div class="course-info">
+          <div class="course-title">Vibe Coding进阶：做一个真正能用的产品</div>
+          <div class="course-tagline">从单页面到完整应用，用AI造一个解决真实问题的小工具</div>
+          <div class="course-tags">
+            <span class="tag tag-tool">Cursor</span>
+            <span class="tag tag-tool">Claude Code</span>
+            <span class="tag tag-tool">Replit</span>
+            <span class="tag tag-tool">Lovable</span>
+            <span class="tag tag-skill">进阶创造</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-section">
+          <div class="course-section-title">课程内容</div>
+          <ul class="course-content-list">
+            <li><strong>Cursor编辑器入门</strong> — 最强AI代码编辑器，用自然语言指挥它修改/新增代码功能，全程不用手写代码</li>
+            <li><strong>AI编程助手对比</strong> — <span class="tool-highlight">Cursor</span> vs <span class="tool-highlight">Claude Code</span> vs <span class="tool-highlight">GitHub Copilot</span>，各自的最佳使用场景</li>
+            <li><strong>完整产品构建流程</strong> — 需求描述→UI设计→功能开发→测试→部署上线，每一步都用AI完成</li>
+            <li><strong>留学行业工具创意</strong> — 留学选校比较器、签证材料Checklist、面试模拟器、学费汇率计算器等实用小工具</li>
+            <li><strong>实操任务</strong> — 确定毕业项目选题，开始构建原型（小工具/小游戏/内部管理面板，自由选择）</li>
+            <li><strong>OpenClaw联动</strong> — 让你做的工具通过OpenClaw在聊天窗口中直接调用</li>
+          </ul>
+        </div>
+        <div class="course-section">
+          <div class="course-section-title">课时分配（120分钟）</div>
+          <div class="time-bar">
+            <div class="time-theory" style="width: 10%;"></div>
+            <div class="time-demo" style="width: 15%;"></div>
+            <div class="time-practice" style="width: 68%;"></div>
+            <div class="time-share" style="width: 7%;"></div>
+          </div>
+          <div class="time-legend">
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--accent);"></div>理论 12min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--purple);"></div>演示 18min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--success);"></div>实操 82min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--orange);"></div>分享 8min</div>
+          </div>
+        </div>
+        <div class="course-hook">
+          <p>下节预告：项目原型有了，下周是集中冲刺课——在课堂上把你的项目做到能展示的完成度，讲师全程一对一指导，冲刺你的毕业作品！</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 11 -->
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-number-block theme-sky">
+          <div class="course-number">11</div>
+          <div class="course-week">Week 11</div>
+        </div>
+        <div class="course-info">
+          <div class="course-title">项目冲刺：打磨你的AI作品</div>
+          <div class="course-tagline">全程实操+一对一辅导，让你的毕业作品从「能用」变成「好用」</div>
+          <div class="course-tags">
+            <span class="tag tag-tool">Cursor</span>
+            <span class="tag tag-tool">Bolt.new</span>
+            <span class="tag tag-tool">Lovable</span>
+            <span class="tag tag-tool">Claude</span>
+            <span class="tag tag-skill">项目制学习</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-section">
+          <div class="course-section-title">课程内容</div>
+          <ul class="course-content-list">
+            <li><strong>开场：进度检查</strong> — 每人用2分钟快速展示当前进度，讲师给出针对性建议</li>
+            <li><strong>AI Debug技巧</strong> — 遇到Bug怎么办？用AI帮你排查错误、优化代码、改进设计</li>
+            <li><strong>产品打磨清单</strong> — UI美化、交互优化、响应式适配、加载速度、用户体验细节</li>
+            <li><strong>集中实操时间（80分钟）</strong> — 讲师巡场一对一指导，帮助学员攻克各自项目难题</li>
+            <li><strong>部署上线</strong> — 通过 <span class="tool-highlight">Vercel</span> / <span class="tool-highlight">Netlify</span> 免费部署，让全世界都能访问你做的作品</li>
+            <li><strong>准备展示</strong> — 最后10分钟确认毕业展示PPT框架和演示流程</li>
+          </ul>
+        </div>
+        <div class="course-section">
+          <div class="course-section-title">课时分配（120分钟）</div>
+          <div class="time-bar">
+            <div class="time-theory" style="width: 3%;"></div>
+            <div class="time-demo" style="width: 7%;"></div>
+            <div class="time-practice" style="width: 80%;"></div>
+            <div class="time-share" style="width: 10%;"></div>
+          </div>
+          <div class="time-legend">
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--accent);"></div>讲解 5min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--purple);"></div>技巧 8min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--success);"></div>实操 95min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--orange);"></div>进度分享 12min</div>
+          </div>
+        </div>
+        <div class="course-hook">
+          <p>下节预告（终极预告）：最后一课就是你的高光时刻！准备好在全公司面前展示你这12周的AI蜕变成果——属于你的APP、你的游戏、你的AI作品！还有AI未来发展趋势前瞻和持续学习路线图！</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 12 -->
+    <div class="course-card" style="border: 2px solid var(--accent);">
+      <div class="course-header">
+        <div class="course-number-block theme-gold">
+          <div class="course-number">12</div>
+          <div class="course-week">Week 12</div>
+        </div>
+        <div class="course-info">
+          <div class="course-title">毕业展示 + AI未来路线图 🎓</div>
+          <div class="course-tagline">你的高光时刻！展示12周蜕变成果，获得AI持续进化路线图</div>
+          <div class="course-tags">
+            <span class="tag tag-hot">🏆 毕业典礼</span>
+            <span class="tag tag-skill">成果展示</span>
+            <span class="tag tag-tool">全工具回顾</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-section">
+          <div class="course-section-title">课程内容</div>
+          <ul class="course-content-list">
+            <li><strong>毕业作品展示（60分钟）</strong> — 每人3-5分钟展示自己的AI作品：我做了什么→怎么做的→有什么用，互相投票评选最佳作品</li>
+            <li><strong>12周成长回顾</strong> — 从第1节课的AI小白到现在能独立用AI创造产品，可视化展示每个人的技能成长曲线</li>
+            <li><strong>部门AI落地方案</strong> — 讲师为每个部门定制一份《AI工具使用指南》和《推荐工作流SOP》，确保培训成果落地</li>
+            <li><strong>AI趋势前瞻</strong> — 2026下半年值得关注的AI方向：多模态Agent、AI操作系统、AI硬件、行业垂直应用</li>
+            <li><strong>持续学习路线图</strong> — 推荐关注的AI信息源、社群、工具更新渠道，确保团队持续跟上AI进化速度</li>
+            <li><strong>颁发结业证书 + 合影</strong> — 每位学员获得「AI全栈赋能实战训练营」结业证书</li>
+          </ul>
+        </div>
+        <div class="course-section">
+          <div class="course-section-title">课时分配（120分钟）</div>
+          <div class="time-bar">
+            <div class="time-practice" style="width: 50%;"></div>
+            <div class="time-theory" style="width: 20%;"></div>
+            <div class="time-demo" style="width: 15%;"></div>
+            <div class="time-share" style="width: 15%;"></div>
+          </div>
+          <div class="time-legend">
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--success);"></div>作品展示 60min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--accent);"></div>趋势讲解 24min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--purple);"></div>落地方案 18min</div>
+            <div class="time-legend-item"><div class="time-legend-dot" style="background: var(--orange);"></div>颁奖互动 18min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ==================== SUMMARY TABLE ==================== -->
+<div class="bg-surface">
+  <div class="main-container section">
+    <div class="section-header">
+      <div class="section-label">Overview</div>
+      <div class="section-title">课程总览一览表</div>
+    </div>
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th style="width: 60px;">周次</th>
+          <th>课程主题</th>
+          <th>阶段</th>
+          <th>核心AI工具</th>
+          <th style="width: 80px;">实操占比</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>W1</strong></td>
+          <td>AI新世界：打开你的超级工具箱</td>
+          <td><span class="phase-label theme-blue">认知启蒙</span></td>
+          <td>ChatGPT, Claude, 豆包, Midjourney, OpenClaw</td>
+          <td>54%</td>
+        </tr>
+        <tr>
+          <td><strong>W2</strong></td>
+          <td>和AI说话的艺术：Prompt工程实战</td>
+          <td><span class="phase-label theme-blue">认知启蒙</span></td>
+          <td>ChatGPT, Claude, 豆包, 扣子</td>
+          <td>60%</td>
+        </tr>
+        <tr>
+          <td><strong>W3</strong></td>
+          <td>AI文案工厂：从爆款推文到专业报告</td>
+          <td><span class="phase-label theme-teal">内容创作</span></td>
+          <td>Claude, ChatGPT, 豆包, Kimi, DeepSeek</td>
+          <td>60%</td>
+        </tr>
+        <tr>
+          <td><strong>W4</strong></td>
+          <td>AI视觉魔法：从文生图到品牌设计</td>
+          <td><span class="phase-label theme-teal">内容创作</span></td>
+          <td>Midjourney, 即梦, 醒图, 通义万相</td>
+          <td>60%</td>
+        </tr>
+        <tr>
+          <td><strong>W5</strong></td>
+          <td>AI视频创作：从脚本到成片的全流程</td>
+          <td><span class="phase-label theme-teal">内容创作</span></td>
+          <td>可灵, Runway, 剪映AI, HeyGen</td>
+          <td>58%</td>
+        </tr>
+        <tr>
+          <td><strong>W6</strong></td>
+          <td>AI办公神器：PPT/文档/表格效率革命</td>
+          <td><span class="phase-label theme-orange">效率革命</span></td>
+          <td>Gamma, AiPPT, ChatGPT, WPS AI</td>
+          <td>62%</td>
+        </tr>
+        <tr>
+          <td><strong>W7</strong></td>
+          <td>AI自动化工作流：让AI替你干一整套活</td>
+          <td><span class="phase-label theme-orange">效率革命</span></td>
+          <td>扣子, Dify, Manus, OpenClaw</td>
+          <td>58%</td>
+        </tr>
+        <tr>
+          <td><strong>W8</strong></td>
+          <td>AI深度研究与数据洞察</td>
+          <td><span class="phase-label theme-orange">效率革命</span></td>
+          <td>Deep Research, Manus, 秘塔, Kimi</td>
+          <td>55%</td>
+        </tr>
+        <tr>
+          <td><strong>W9</strong></td>
+          <td>Vibe Coding入门：说人话就能做网页</td>
+          <td><span class="phase-label theme-rose">创造力释放</span></td>
+          <td>Bolt.new, Lovable, v0.dev</td>
+          <td>61%</td>
+        </tr>
+        <tr>
+          <td><strong>W10</strong></td>
+          <td>Vibe Coding进阶：做一个真正能用的产品</td>
+          <td><span class="phase-label theme-rose">创造力释放</span></td>
+          <td>Cursor, Claude Code, Replit</td>
+          <td>68%</td>
+        </tr>
+        <tr>
+          <td><strong>W11</strong></td>
+          <td>项目冲刺：打磨你的AI作品</td>
+          <td><span class="phase-label theme-rose">创造力释放</span></td>
+          <td>全工具综合运用</td>
+          <td>79%</td>
+        </tr>
+        <tr>
+          <td><strong>W12</strong></td>
+          <td>毕业展示 + AI未来路线图</td>
+          <td><span class="phase-label theme-rose">创造力释放</span></td>
+          <td>成果展示 + 总结回顾</td>
+          <td>50%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ==================== DEPARTMENT VALUE ==================== -->
+<div class="bg-white">
+  <div class="main-container section">
+    <div class="section-header">
+      <div class="section-label">Department Value</div>
+      <div class="section-title">各部门收获价值</div>
+      <p class="section-desc">同一套课程体系，不同部门各取所需，确保每个人都能学到对自己最有用的技能</p>
     </div>
     <div class="dept-grid">
       <div class="dept-card dept-marketing">
-        <h4>📢 市场/运营</h4>
+        <h4>📢 市场部</h4>
         <ul>
-          <li>AI生成多平台营销文案(小红书/抖音/公众号)</li>
-          <li>批量制作海报、视频素材</li>
-          <li>用Perplexity做竞品与行业趋势分析</li>
-          <li>搭建品牌内容自动发布流程</li>
-          <li>AI辅助SEO与内容策略优化</li>
-          <li>AI数字人录制产品介绍视频</li>
+          <li>AI批量生成小红书/公众号爆款内容</li>
+          <li>Midjourney/即梦制作专业营销视觉素材</li>
+          <li>AI视频制作抖音/小红书短视频</li>
+          <li>AI竞品监控与行业趋势分析</li>
+          <li>用Vibe Coding做活动落地页/H5页面</li>
+          <li>搭建内容自动发布工作流</li>
         </ul>
       </div>
-      <div class="dept-card dept-marketing">
-        <h4>🎓 顾问部</h4>
+      <div class="dept-card dept-teaching">
+        <h4>📚 教学部</h4>
         <ul>
-          <li>AI生成个性化留学/求职规划方案</li>
-          <li>用NotebookLM整理案例库和院校信息</li>
-          <li>自动生成学生申请材料模板</li>
-          <li>AI辅助文书润色与优化</li>
-          <li>搭建学生咨询AI助手/模拟面试练习系统</li>
-          <li>知识库搭建:留学/求职FAQ智能问答</li>
+          <li>AI辅助课程内容设计与教案生成</li>
+          <li>为留学生制作AI驱动的简历优化工具</li>
+          <li>AI模拟面试练习系统</li>
+          <li>知识库搭建：留学/求职FAQ智能问答</li>
           <li>用Vibe Coding做教学辅助小工具</li>
           <li>AI数字人录制多语言教学视频</li>
         </ul>
@@ -1046,7 +1714,7 @@
       <div class="philosophy-item">
         <div class="philosophy-number">🦞</div>
         <h4>彩蛋交付</h4>
-        <p>每人一个配置好的OpenClaw私人AI助手、部门AI Bot(扣子平台)、Vibe Coding毕业作品</p>
+        <p>每人一个配置好的OpenClaw私人AI助手、部门AI Bot（扣子平台）、Vibe Coding毕业作品</p>
       </div>
     </div>
   </div>
