@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI全栈赋能计划 — 企业AI实战训练营课程大纲</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0f172a;
+    --accent: #2563eb;
+    --accent-light: #3b82f6;
+    --accent-glow: #60a5fa;
+    --surface: #f8fafc;
+    --surface-alt: #f1f5f9;
+    --border: #e2e8f0;
+    --text: #1e293b;
+    --text-secondary: #64748b;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --purple: #8b5cf6;
+    --rose: #f43f5e;
+    --teal: #14b8a6;
+    --orange: #f97316;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: var(--primary);
+    color: var(--text);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 50% 80%, rgba(20, 184, 166, 0.06) 0%, transparent 40%);
+    animation: heroGlow 12s ease-in-out infinite alternate;
+  }
+
+  @keyframes heroGlow {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-2%, 2%) scale(1.05); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    padding: 2rem;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 6px 20px;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 50px;
+    color: var(--accent-glow);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: badgePulse 3s ease-in-out infinite;
+  }
+
+  @keyframes badgePulse {
+    0%, 100% { box-shadow: 0 0 10px rgba(96, 165, 250, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.5); }
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .hero-highlight {
+    background: linear-gradient(135deg, var(--accent-glow), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: #94a3b8;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 14px 36px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+  }
+
+  /* MAIN CONTAINER */
+  .main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section {
+    padding: 5rem 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    display: inline-block;
+    padding: 4px 16px;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--accent);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .section-desc {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* BACKGROUND VARIANTS */
+  .bg-light {
+    background: var(--surface);
+  }
+
+  .bg-dark {
+    background: var(--primary);
+  }
+
+  .bg-dark .section-title,
+  .bg-dark .section-desc {
+    color: #ffffff;
+  }
+
+  .bg-dark .section-label {
+    background: rgba(96, 165, 250, 0.15);
+    color: var(--accent-glow);
+  }
+
+  /* STATS GRID */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .stat-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+  }
+
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .stat-number {
+    font-size: 3rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  /* PHILOSOPHY GRID */
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .philosophy-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .philosophy-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-3px);
+  }
+
+  .philosophy-number {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .philosophy-item h4 {
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+  }
+
+  .philosophy-item p {
+    color: #94a3b8;
+    line-height: 1.7;
+  }
+
+  /* MODULE CARDS */
+  .module-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .module-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+  }
+
+  .module-card:hover {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+  }
+
+  .module-header {
+    padding: 2rem 2.5rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-bottom: 2px solid var(--border);
+  }
+
+  .module-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .module-number {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    color: white;
+    border-radius: 12px;
+    font-weight: 900;
+    font-size: 1.3rem;
+  }
+
+  .module-badge {
+    padding: 4px 12px;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--accent);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .module-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .module-desc {
+    color: var(--text-secondary);
+    font-size: 1rem;
+  }
+
+  .module-body {
+    padding: 2.5rem;
+  }
+
+  .lesson-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .lesson-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--surface);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    transition: all 0.3s ease;
+  }
+
+  .lesson-item:hover {
+    background: #e0f2fe;
+    transform: translateX(5px);
+  }
+
+  .lesson-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    color: var(--accent);
+    border-radius: 8px;
+    font-weight: 700;
+    border: 2px solid var(--accent);
+  }
+
+  .lesson-content h4 {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  .lesson-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .lesson-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+  }
+
+  .lesson-tag {
+    padding: 3px 10px;
+    background: white;
+    color: var(--accent);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid var(--accent);
+  }
+
+  /* DEPARTMENT CARDS */
+  .dept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .dept-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    border-left: 5px solid var(--accent);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+  }
+
+  .dept-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .dept-marketing { border-left-color: var(--purple); }
+  .dept-sales { border-left-color: var(--success); }
+  .dept-ops { border-left-color: var(--orange); }
+
+  .dept-card h4 {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+
+  .dept-card ul {
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .dept-card li {
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .dept-card li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 900;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: #0a0f1a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-brand {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .section { padding: 3rem 0; }
+    .hero h1 { font-size: 2rem; }
+    .stats-grid,
+    .philosophy-grid,
+    .dept-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== HERO ==================== -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">企业AI转型加速计划</div>
+    <h1>
+      <span class="hero-highlight">AI全栈赋能</span><br>
+      实战训练营
+    </h1>
+    <p class="hero-subtitle">
+      从AI小白到独当一面的AI应用者<br>
+      帮助每个人、每个部门找到属于自己的AI工作流
+    </p>
+    <a href="#curriculum" class="hero-cta">
+      <span>查看完整课程</span>
+      <span>→</span>
+    </a>
+  </div>
+</div>
+
+<!-- ==================== STATS ==================== -->
+<div class="bg-light">
+  <div class="main-container section">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">8</div>
+        <div class="stat-label">核心模块</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">24+</div>
+        <div class="stat-label">实战课时</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">AI工具掌握</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">动手实操</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PHILOSOPHY ==================== -->
+<div class="bg-dark">
+  <div class="main-container section">
+    <div class="section-header">
+      <div class="section-label">Training Philosophy</div>
+      <div class="section-title">课程设计理念</div>
+      <p class="section-desc">不是教你"AI是什么",而是带你"用AI做什么"</p>
+    </div>
+    <div class="philosophy-grid">
+      <div class="philosophy-item">
+        <div class="philosophy-number">🎯</div>
+        <h4>场景驱动</h4>
+        <p>每节课都围绕真实工作场景设计,学完立刻能用,不讲废话不兜圈子</p>
+      </div>
+      <div class="philosophy-item">
+        <div class="philosophy-number">💪</div>
+        <h4>技能本位</h4>
+        <p>从"会用ChatGPT"到"能搭建AI工作流",逐步提升AI应用能力等级</p>
+      </div>
+      <div class="philosophy-item">
+        <div class="philosophy-number">🛠️</div>
+        <h4>工具组合</h4>
+        <p>不只讲一个工具,而是教你如何把多个AI工具串联成完整解决方案</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CURRICULUM ==================== -->
+<div class="bg-light" id="curriculum">
+  <div class="main-container section">
+    <div class="section-header">
+      <div class="section-label">Course Modules</div>
+      <div class="section-title">完整课程体系</div>
+      <p class="section-desc">从基础到高级,循序渐进掌握AI全栈技能</p>
+    </div>
+    
+    <div class="module-grid">
+      
+      <!-- Module 1 -->
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-meta">
+            <div class="module-number">1</div>
+            <div class="module-badge">基础入门</div>
+          </div>
+          <h3 class="module-title">AI大模型基础与工具矩阵</h3>
+          <p class="module-desc">打好基础,搭建AI工具库,了解行业格局</p>
+        </div>
+        <div class="module-body">
+          <div class="lesson-list">
+            <div class="lesson-item">
+              <div class="lesson-number">1.1</div>
+              <div class="lesson-content">
+                <h4>AI大模型格局与能力边界</h4>
+                <p>理解GPT、Claude、Gemini等主流模型的核心差异,掌握"什么场景用什么模型"的判断力</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">行业认知</span>
+                  <span class="lesson-tag">模型选型</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">1.2</div>
+              <div class="lesson-content">
+                <h4>搭建你的AI工具矩阵</h4>
+                <p>手把手配置ChatGPT、Claude、Cursor、Kimi等工具账号,建立个人AI工具库</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">工具配置</span>
+                  <span class="lesson-tag">账号管理</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">1.3</div>
+              <div class="lesson-content">
+                <h4>Prompt工程入门</h4>
+                <p>学会"跟AI说人话",掌握基础提示词技巧,让AI理解你的真实意图</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">提示工程</span>
+                  <span class="lesson-tag">对话技巧</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 2 -->
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-meta">
+            <div class="module-number">2</div>
+            <div class="module-badge">内容创作</div>
+          </div>
+          <h3 class="module-title">AI内容创作全流程</h3>
+          <p class="module-desc">从零到一生成高质量文案、图片、视频内容</p>
+        </div>
+        <div class="module-body">
+          <div class="lesson-list">
+            <div class="lesson-item">
+              <div class="lesson-number">2.1</div>
+              <div class="lesson-content">
+                <h4>AI文案创作实战</h4>
+                <p>用AI生成小红书/公众号/视频号文案,掌握不同平台的内容调性与爆款公式</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">文案写作</span>
+                  <span class="lesson-tag">内容策略</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">2.2</div>
+              <div class="lesson-content">
+                <h4>AI图像生成与设计</h4>
+                <p>用Midjourney/Flux等工具生成营销海报、产品图、品牌视觉素材</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">图像生成</span>
+                  <span class="lesson-tag">视觉设计</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">2.3</div>
+              <div class="lesson-content">
+                <h4>AI视频制作入门</h4>
+                <p>用剪映/CapCut AI功能批量生成短视频,掌握文本转视频、AI配音、智能剪辑</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">视频制作</span>
+                  <span class="lesson-tag">自动化剪辑</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 3 -->
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-meta">
+            <div class="module-number">3</div>
+            <div class="module-badge">数据处理</div>
+          </div>
+          <h3 class="module-title">AI数据分析与自动化</h3>
+          <p class="module-desc">让AI帮你处理Excel、生成报表、做数据洞察</p>
+        </div>
+        <div class="module-body">
+          <div class="lesson-list">
+            <div class="lesson-item">
+              <div class="lesson-number">3.1</div>
+              <div class="lesson-content">
+                <h4>AI辅助Excel数据处理</h4>
+                <p>用ChatGPT生成公式、清洗数据、做数据透视,告别繁琐的Excel操作</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">Excel自动化</span>
+                  <span class="lesson-tag">数据清洗</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">3.2</div>
+              <div class="lesson-content">
+                <h4>AI数据可视化</h4>
+                <p>用Claude Artifacts、Cursor生成可交互的数据图表与Dashboard</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">数据可视化</span>
+                  <span class="lesson-tag">交互式图表</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">3.3</div>
+              <div class="lesson-content">
+                <h4>AI驱动的业务洞察</h4>
+                <p>让AI帮你读懂数据背后的趋势,生成业务分析报告和决策建议</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">商业智能</span>
+                  <span class="lesson-tag">决策支持</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 4 -->
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-meta">
+            <div class="module-number">4</div>
+            <div class="module-badge">智能搜索</div>
+          </div>
+          <h3 class="module-title">AI搜索与信息聚合</h3>
+          <p class="module-desc">超越传统搜索引擎,用AI做深度信息挖掘</p>
+        </div>
+        <div class="module-body">
+          <div class="lesson-list">
+            <div class="lesson-item">
+              <div class="lesson-number">4.1</div>
+              <div class="lesson-content">
+                <h4>Perplexity与NotebookLM深度搜索</h4>
+                <p>用AI搜索引擎快速获取行业报告、竞品分析、学术资料,并生成结构化摘要</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">AI搜索</span>
+                  <span class="lesson-tag">信息整合</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">4.2</div>
+              <div class="lesson-content">
+                <h4>AI辅助竞品分析</h4>
+                <p>用Deep Research功能深度调研行业趋势、竞争对手策略、用户评价</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">竞品研究</span>
+                  <span class="lesson-tag">市场洞察</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">4.3</div>
+              <div class="lesson-content">
+                <h4>构建个人知识库</h4>
+                <p>用NotebookLM整理行业资料、内部文档,搭建可检索的企业知识库</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">知识管理</span>
+                  <span class="lesson-tag">企业知识库</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 5 -->
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-meta">
+            <div class="module-number">5</div>
+            <div class="module-badge">智能体搭建</div>
+          </div>
+          <h3 class="module-title">AI Agent与自动化工作流</h3>
+          <p class="module-desc">零代码搭建专属AI助手与自动化流程</p>
+        </div>
+        <div class="module-body">
+          <div class="lesson-list">
+            <div class="lesson-item">
+              <div class="lesson-number">5.1</div>
+              <div class="lesson-content">
+                <h4>用扣子(Coze)搭建AI Bot</h4>
+                <p>零代码创建客服机器人、知识库问答助手、内容生成Bot</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">Bot开发</span>
+                  <span class="lesson-tag">零代码</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">5.2</div>
+              <div class="lesson-content">
+                <h4>OpenClaw私人助手配置</h4>
+                <p>搭建个性化AI助手,定制专属Prompt与知识库,让AI理解你的工作习惯</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">个人助手</span>
+                  <span class="lesson-tag">定制化</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">5.3</div>
+              <div class="lesson-content">
+                <h4>自动化工作流设计</h4>
+                <p>用Make/Zapier串联多个AI工具,实现"从内容生成→发布→数据反馈"全流程自动化</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">工作流自动化</span>
+                  <span class="lesson-tag">工具集成</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 6 -->
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-meta">
+            <div class="module-number">6</div>
+            <div class="module-badge">AI编程</div>
+          </div>
+          <h3 class="module-title">AI辅助编程与工具开发</h3>
+          <p class="module-desc">让非程序员也能用AI开发小工具、做数据脚本</p>
+        </div>
+        <div class="module-body">
+          <div class="lesson-list">
+            <div class="lesson-item">
+              <div class="lesson-number">6.1</div>
+              <div class="lesson-content">
+                <h4>Cursor AI编程入门</h4>
+                <p>用AI辅助写Python脚本、自动化任务,无需编程基础也能开发实用工具</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">AI编程</span>
+                  <span class="lesson-tag">Python</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">6.2</div>
+              <div class="lesson-content">
+                <h4>Vibe Coding快速开发小程序</h4>
+                <p>用Vibe平台快速搭建内部管理工具、数据看板、表单收集小应用</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">快速开发</span>
+                  <span class="lesson-tag">低代码</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">6.3</div>
+              <div class="lesson-content">
+                <h4>实战:开发部门专属工具</h4>
+                <p>结合实际需求,用AI开发一个真实可用的业务小工具(如客户跟进提醒、数据采集爬虫)</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">项目实战</span>
+                  <span class="lesson-tag">业务应用</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 7 -->
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-meta">
+            <div class="module-number">7</div>
+            <div class="module-badge">AI音视频</div>
+          </div>
+          <h3 class="module-title">AI音频与数字人制作</h3>
+          <p class="module-desc">用AI生成语音、音乐、数字人视频</p>
+        </div>
+        <div class="module-body">
+          <div class="lesson-list">
+            <div class="lesson-item">
+              <div class="lesson-number">7.1</div>
+              <div class="lesson-content">
+                <h4>AI配音与音频制作</h4>
+                <p>用ElevenLabs/ChatTTS生成多语言配音,制作播客、有声书、视频旁白</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">AI配音</span>
+                  <span class="lesson-tag">语音合成</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">7.2</div>
+              <div class="lesson-content">
+                <h4>AI数字人视频生成</h4>
+                <p>用HeyGen/D-ID快速制作数字人播报视频,应用于课程讲解、产品介绍</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">数字人</span>
+                  <span class="lesson-tag">视频生成</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">7.3</div>
+              <div class="lesson-content">
+                <h4>AI音乐生成</h4>
+                <p>用Suno/Udio生成背景音乐、品牌主题曲,为营销视频配乐</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">音乐生成</span>
+                  <span class="lesson-tag">音效制作</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 8 -->
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-meta">
+            <div class="module-number">8</div>
+            <div class="module-badge">综合实战</div>
+          </div>
+          <h3 class="module-title">AI全栈项目实战</h3>
+          <p class="module-desc">综合运用所学技能,完成端到端AI项目</p>
+        </div>
+        <div class="module-body">
+          <div class="lesson-list">
+            <div class="lesson-item">
+              <div class="lesson-number">8.1</div>
+              <div class="lesson-content">
+                <h4>营销活动全流程AI化</h4>
+                <p>从策划→文案→海报→视频→投放→数据分析,用AI完成整个营销闭环</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">营销自动化</span>
+                  <span class="lesson-tag">全流程</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">8.2</div>
+              <div class="lesson-content">
+                <h4>客户服务AI化改造</h4>
+                <p>搭建智能客服Bot+知识库问答+自动跟进提醒的完整客服系统</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">客服系统</span>
+                  <span class="lesson-tag">智能化</span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-item">
+              <div class="lesson-number">8.3</div>
+              <div class="lesson-content">
+                <h4>个人AI工作流定制</h4>
+                <p>每位学员输出一份"我的AI工作流地图",明确日常工作中哪些环节可以AI化</p>
+                <div class="lesson-tags">
+                  <span class="lesson-tag">个人定制</span>
+                  <span class="lesson-tag">流程优化</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== DEPARTMENTS ==================== -->
+<div class="bg-light">
+  <div class="main-container section">
+    <div class="section-header">
+      <div class="section-label">Department Application</div>
+      <div class="section-title">各部门AI应用场景</div>
+      <p class="section-desc">每个部门都能找到自己的AI落地方案</p>
+    </div>
+    <div class="dept-grid">
+      <div class="dept-card dept-marketing">
+        <h4>📢 市场/运营</h4>
+        <ul>
+          <li>AI生成多平台营销文案(小红书/抖音/公众号)</li>
+          <li>批量制作海报、视频素材</li>
+          <li>用Perplexity做竞品与行业趋势分析</li>
+          <li>搭建品牌内容自动发布流程</li>
+          <li>AI辅助SEO与内容策略优化</li>
+          <li>AI数字人录制产品介绍视频</li>
+        </ul>
+      </div>
+      <div class="dept-card dept-marketing">
+        <h4>🎓 顾问部</h4>
+        <ul>
+          <li>AI生成个性化留学/求职规划方案</li>
+          <li>用NotebookLM整理案例库和院校信息</li>
+          <li>自动生成学生申请材料模板</li>
+          <li>AI辅助文书润色与优化</li>
+          <li>搭建学生咨询AI助手/模拟面试练习系统</li>
+          <li>知识库搭建:留学/求职FAQ智能问答</li>
+          <li>用Vibe Coding做教学辅助小工具</li>
+          <li>AI数字人录制多语言教学视频</li>
+        </ul>
+      </div>
+      <div class="dept-card dept-sales">
+        <h4>💼 销售部</h4>
+        <ul>
+          <li>AI生成个性化客户跟进文案和话术</li>
+          <li>AI辅助客户需求分析和方案推荐</li>
+          <li>一键生成定制化留学方案PPT</li>
+          <li>搭建AI客户跟进提醒工作流</li>
+          <li>用Vibe Coding做客户服务小程序</li>
+          <li>AI邮件/微信自动回复模板</li>
+        </ul>
+      </div>
+      <div class="dept-card dept-ops">
+        <h4>⚙️ 中台</h4>
+        <ul>
+          <li>AI数据分析驱动运营决策</li>
+          <li>自动化日报/周报/月报生成</li>
+          <li>AI辅助流程优化和SOP制定</li>
+          <li>Deep Research做行业深度调研</li>
+          <li>用Vibe Coding做内部管理工具</li>
+          <li>搭建公司级AI知识库和内部助手</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== DELIVERABLES ==================== -->
+<div class="bg-dark">
+  <div class="main-container section">
+    <div class="section-header">
+      <div class="section-label">Deliverables</div>
+      <div class="section-title">培训交付物清单</div>
+      <p class="section-desc">不只是上课——每位学员都将带走可持续使用的AI技能资产</p>
+    </div>
+    <div class="philosophy-grid">
+      <div class="philosophy-item">
+        <div class="philosophy-number">📦</div>
+        <h4>每节课交付</h4>
+        <p>课程录屏回放、操作指南手册、Prompt模板库、工具账号配置指南、课后练习任务</p>
+      </div>
+      <div class="philosophy-item">
+        <div class="philosophy-number">🎯</div>
+        <h4>终期交付</h4>
+        <p>学员个人AI作品集、部门AI工具使用SOP、AI工具清单及使用场景指南、持续学习资源包</p>
+      </div>
+      <div class="philosophy-item">
+        <div class="philosophy-number">🦞</div>
+        <h4>彩蛋交付</h4>
+        <p>每人一个配置好的OpenClaw私人AI助手、部门AI Bot(扣子平台)、Vibe Coding毕业作品</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+  <div class="main-container">
+    <div class="footer-brand">AI全栈赋能实战训练营</div>
+    <p>课程方案 · 2026年3月 · 版本 1.0</p>
+    <p style="margin-top: 1rem; font-size: 0.78rem;">本课程大纲所涉及的所有AI工具均基于2025-2026年最新版本<br>课程内容将根据AI行业最新发展动态进行实时更新调整</p>
+  </div>
+</div>
+
+</body>
+</html>
